@@ -104,7 +104,7 @@
 
             //add that value to totalExpense
             totalExpense = totalExpense + expense;
-            updateTotal();
+            updateTotal(totalExpense);
             allExpenses.push(expenseItem);
             //console.log({ totalExpense });    
              
@@ -157,7 +157,7 @@
 
         // Delete Item
         
-        function deleteItem(dateValue, amount){
+        function deleteItem(dateValue, expense){
         //    const newArr = [];
         //     for(let i=0; i<allExpenses.length; i++){
         //        if (allExpenses[i].moment.valueOf() !== dateValue){
@@ -172,13 +172,13 @@
                
                const newArr = allExpenses.filter(expense => expense.moment.valueOf() !== dateValue)
                renderList(newArr);
-               totalExpense = totalExpense - amount;
-               updateTotal();
+             totalExpense = totalExpense - expense;
+             updateTotal(totalExpense);
              
         }
 
           //update Total
-          function updateTotal(){
+          function updateTotal(totalExpense){
             headingEl.textContent = `Total: ${totalExpense}`;
         }
 
